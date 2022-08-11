@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace App
 {
-    public interface Observed
+    public interface IObserved
     {
-        void AddObserver(Observer o);
-        void RemoveObserver(Observer o);
+        void AddObserver(IObserver o);
+        void RemoveObserver(IObserver o);
         void NotifyObservers();
     }
 
 
 
-    public interface Observer
+    public interface IObserver
     {
         void HandleEvent(int temp, int pressure);
     }
 
 
 
-    public class MeteoStation : Observed
+    public class MeteoStation : IObserved
     {
         int temperature;
         int pressure;
 
-        List<Observer> observers = new List<Observer>();
+        List<IObserver> observers = new List<IObserver>();
 
         public void setMeasurements(int t, int p)
         {
@@ -35,12 +35,12 @@ namespace App
             pressure = p;
             NotifyObservers();
         }
-        public void AddObserver(Observer o)
+        public void AddObserver(IObserver o)
         {
             observers.Add(o);
         }
 
-        public void RemoveObserver(Observer o)
+        public void RemoveObserver(IObserver o)
         {
             observers.Remove(o);
         }
@@ -55,7 +55,7 @@ namespace App
     }
 
 
-    public class FileObserver : Observer
+    public class FileObserver : IObserver
     {
         public void HandleEvent(int temp, int pressure)
         {
@@ -72,7 +72,7 @@ namespace App
     }
 
 
-    public class ConsoleObserver : Observer
+    public class ConsoleObserver : IObserver
     {
         public void HandleEvent(int temp, int pressure)
         {

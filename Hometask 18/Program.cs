@@ -19,6 +19,8 @@ namespace App
             station.setMeasurements(new Random().Next(20, 35), new Random().Next(745, 770));
             Console.WriteLine();
 
+
+
             // 2.
             Context context = new();
             int animalType = new Random().Next(3);
