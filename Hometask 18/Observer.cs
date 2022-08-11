@@ -76,7 +76,14 @@ namespace App
     {
         public void HandleEvent(int temp, int pressure)
         {
-            Console.WriteLine($"CONSOLE: Changes at {System.DateTime.Now.ToString()}. Temperature = {temp}, Pressure = {pressure}");
+            Console.Write($"CONSOLE: Changes at {System.DateTime.Now.ToString()}. ");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write($"Temperature = {temp}");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(", ");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write($"Pressure = {pressure}\n");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

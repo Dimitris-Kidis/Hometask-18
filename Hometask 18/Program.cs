@@ -16,8 +16,8 @@ namespace App
             station.AddObserver(new ConsoleObserver());
             station.AddObserver(new FileObserver());
 
-            station.setMeasurements(25, 760);
-
+            station.setMeasurements(new Random().Next(20, 35), new Random().Next(745, 770));
+            Console.WriteLine();
 
             // 2.
             Context context = new();
